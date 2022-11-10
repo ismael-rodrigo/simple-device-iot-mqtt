@@ -1,26 +1,30 @@
 #include <Arduino.h>
 #include "configuration/configurationManager.h"
+#include "button/button.h"
 
-
-char ssid[25];      
-char pass[25];
-
+Button butt(D3);
+ConfigurationManager config;
 
 void setup() {
-  ConfigurationManager config;
+
+
+  EEPROM.begin(512);
   Serial.begin(9600);
-  config.beginConfigServer("teste","030272neto");
 
-  ler(0).toCharArray(ssid, 25);
-  ler(25).toCharArray(pass, 25);
+  
 
-
-  Serial.println(ssid);
-  Serial.println(pass);
+  config.loadEepromData();
+  config.connectWiFi();
 
 
 }
 
 void loop() {
-  Serial.print("ssss");
+  if(butt.isLongedPressed(5000)) config.beginConfigServer("teste","030272neto");
+  if(config.verifyWiFiStatus()){
+    Serial.println("Connected");
+    Serial.print(config.ip_current_wifi);
+  }; 
+  delay(300);
+  
 }
