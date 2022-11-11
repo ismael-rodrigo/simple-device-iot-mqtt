@@ -1,9 +1,14 @@
 #include <Arduino.h>
 #include "configuration/configurationManager.h"
 #include "button/button.h"
+#include "callbacksTimeout/callbacksTimeOut.h"
+
 
 Button butt(D3);
 ConfigurationManager config;
+
+WiFiClient espClient;
+
 
 void setup() {
 
@@ -19,12 +24,22 @@ void setup() {
 
 }
 
+
 void loop() {
   if(butt.isLongedPressed(5000)) config.beginConfigServer("teste","030272neto");
-  if(config.verifyWiFiStatus()){
-    Serial.println("Connected");
-    Serial.print(config.ip_current_wifi);
-  }; 
-  delay(300);
+
+
+
+
+
+
+
+  if(!config.verifyWiFiStatus()){
+    config.reconnectWiFi();
+  };
+
   
 }
+
+
+

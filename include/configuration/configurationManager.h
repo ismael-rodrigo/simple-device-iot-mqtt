@@ -16,6 +16,9 @@ public:
     void loadEepromData();
     bool connectWiFi();
     bool verifyWiFiStatus();
+    void reconnectWiFi();
+
+
     ConfigurationManager();
 
 };

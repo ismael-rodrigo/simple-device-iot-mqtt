@@ -55,7 +55,10 @@ bool ConfigurationManager::verifyWiFiStatus()
     return true;
 };
 
-
+void ConfigurationManager::reconnectWiFi()
+{
+    WiFi.reconnect();
+}
 
 
 
