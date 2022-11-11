@@ -8,6 +8,9 @@ private:
 public:
     char ssid_wifi[25];
     char password_wifi[25];
+    char topic_state[25];
+    char topic_active[25];
+
     IPAddress  ip_current_wifi;
 
     ESP8266WebServer server;

@@ -4,7 +4,7 @@
 MqttHandler::MqttHandler(WiFiClient espclient):
 MQTT(espclient)
 {
-    MQTT.setCallback(void);
+    MQTT.setCallback(callback);
 }
 
 void MqttHandler::setServer(char *domain ,char * portname)
@@ -16,3 +16,18 @@ void MqttHandler::setServer(char *domain ,char * portname)
 
 
 
+
+
+void callback(char* topic, byte* payload, unsigned int length)
+{
+    String payload_string;
+    for(int i = 0; i < length; i++) 
+    {
+        char c = (char)payload[i];
+        payload_string += c;
+    };
+
+    if(String(topic) == "")
+    
+    
+}

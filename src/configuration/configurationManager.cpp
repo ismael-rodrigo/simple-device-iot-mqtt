@@ -14,6 +14,8 @@ void ConfigurationManager::loadEepromData()
 {
     ler(0).toCharArray(ssid_wifi, 25);
     ler(25).toCharArray(password_wifi, 25);
+    ler(50).toCharArray(topic_active, 25);
+    ler(75).toCharArray(topic_state, 25);
 }
 
 

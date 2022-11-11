@@ -5,12 +5,16 @@ class MqttHandler
 {
 
 private:
-    void _callback();
+    
+    String topic_active;
+    String topic_state;
 
 public:
     PubSubClient MQTT;
     MqttHandler(WiFiClient espclient);
     void setServer( char *domain , char * portname);
+    void setCallback(char *active_topic , char *state_topic);
+
     
 
 };
