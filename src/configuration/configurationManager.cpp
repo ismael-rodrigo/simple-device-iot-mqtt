@@ -14,8 +14,8 @@ void ConfigurationManager::loadEepromData()
 {
     ler(0).toCharArray(ssid_wifi, 25);
     ler(25).toCharArray(password_wifi, 25);
-    ler(50).toCharArray(topic_active, 25);
-    ler(75).toCharArray(topic_state, 25);
+    ler(100).toCharArray(topic_active, 25);
+    ler(125).toCharArray(topic_state, 25);
 }
 
 
@@ -79,7 +79,7 @@ void guardar_conf()
     gravar(50,_server->arg("broker"));
     gravar(75,_server->arg("port"));
     gravar(100,_server->arg("active"));
-    gravar(100,_server->arg("state"));
+    gravar(125,_server->arg("state"));
     _server->send(200, "text/html", config_page_html + message_html + final_page_html);
     delay(2000);
     ESP.restart();

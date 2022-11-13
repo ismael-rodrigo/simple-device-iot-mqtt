@@ -1,20 +1,21 @@
-#include <PubSubClient.h>
-#include <ESP8266WebServer.h>
+// #ifndef PUBSUB
+// #define PUBSUB
 
-class MqttHandler 
-{
+// #include <PubSubClient.h>
+// #include <ESP8266WebServer.h>
 
-private:
+// class MqttHandler : private PubSubClient
+// {
+// private:
+//     String topic_active;
+//     String topic_state;
+
+// public:
+//     MqttHandler();
+//     void connect( );
+//     void linkTopicStateToPinOutput(char *state_topic , uint8_t pin);
     
-    String topic_active;
-    String topic_state;
-
-public:
-    PubSubClient MQTT;
-    MqttHandler(WiFiClient espclient);
-    void setServer( char *domain , char * portname);
-    void setCallback(char *active_topic , char *state_topic);
-
     
 
-};
+// };
+// #endif
