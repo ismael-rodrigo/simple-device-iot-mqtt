@@ -72,11 +72,11 @@ void callback(char* topic, byte* payload, unsigned int length)
   }
   if(String(topic) == String(config.topic_state) ){
       if(payload_string == "ON"){
-        digitalWrite(D4,HIGH);
+        digitalWrite(D4,LOW);
         return;
       }
       if(payload_string== "OFF"){
-        digitalWrite(D4,LOW);
+        digitalWrite(D4,HIGH);
         return;
       }
   }
@@ -87,11 +87,11 @@ void callback_alexa(uint8_t brightness)
 {
   if(brightness==255){
     MQTT.publish(config.topic_state,"ON");
-    digitalWrite(D4,HIGH);
+    digitalWrite(D4,LOW);
   }
   else{
     MQTT.publish(config.topic_state,"OFF");
-    digitalWrite(D4,LOW);
+    digitalWrite(D4,HIGH);
   }
 
 }
