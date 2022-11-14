@@ -9,7 +9,7 @@ class Button
     Button(const uint8_t btn_pin);
     bool isClicked();
     bool isLongedPressed(const int milliseconds);
-
+    bool isChangedState();
 
   private:
     const uint8_t _btn_pin;  

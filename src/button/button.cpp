@@ -49,3 +49,17 @@ else{
   return false;  
 }
 };
+
+
+
+bool last_state;
+bool Button::isChangedState()
+{
+if(digitalRead(_btn_pin) != last_state){
+  last_state = digitalRead(_btn_pin);
+  return true;
+}
+
+return false;
+
+}
