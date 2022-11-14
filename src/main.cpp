@@ -68,7 +68,7 @@ void loop() {
   }
 
   MQTT.loop();
-  //alexa.loop();
+  alexa.loop();
 }
 
 
